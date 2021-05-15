@@ -5,7 +5,7 @@ const PetSchema = new mongoose.Schema({
         type: String,
         required: [true, "you must have a name for this pet"],
         minLength: [3, "your name must be at least 3 characters"],
-        unique: [true,"all pets must have a unique name"]
+        unique: [true,"all pets must have a unique name"],
         //Unique considering upper and lower cases
     },
 	type: {
@@ -22,16 +22,19 @@ const PetSchema = new mongoose.Schema({
         type: String,
         required: [false],
         maxLength: [3, "This skill must have at least 3 characters"],
+        default: 'none',
     },
     skill_2 : {
         type: String,
         required: [false],
         maxLength: [3, "This skill must have at least 3 characters"],
+        default: 'none',
     },
     skill_3 : {
         type: String,
         required: [false],
         maxLength: [3, "This skill must have at least 3 characters"],
+        default: 'none',
     },
 },
     { timestamps: true });
