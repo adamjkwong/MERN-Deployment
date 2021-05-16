@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -39,13 +39,13 @@
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 50%;
 }
 
 th, td {
   text-align: left;
   padding: 5px;
-  width: 10%;
+  width: 20%;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -59,12 +59,16 @@ th {
 .detailed_pet_flex_box {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  border-style: solid;
+  width: 625px;
+  padding: 20px;
 }
 
 
 .detailed_pet_flex_entity {
-  width: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
 .error-txt {
@@ -72,5 +76,34 @@ th {
 }
 
 .bigTextBox{
-    width:200px;
+    width:250px;
+}
+
+.blue-button{
+  background-color: blue;
+  color: white;
+  box-shadow: 5px 10px black;
+  width: 150px;
+}
+
+.green-button{
+  background-color: green;
+  color: white;
+  box-shadow: 5px 10px black;
+  width: 150px;
+}
+
+.primary-link{
+  text-align: right;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+.shiftleft {
+  margin-left: 15px;
 }

@@ -1,16 +1,18 @@
-import PetForm from '../components/PetForm';
 import MultiplePetDisplay from '../components/MultiplePetDisplay';
-import React, { useState } from 'react'
-import '../App.css';
+import React from 'react'
+import {Link} from '@reach/router';
 
+import '../App.css';
 
 const Main = () => {
     return (
-        <div class ="mainbody">
-            <h1>Welcome to the Animal Shelter</h1>
-            <PetForm/>
-            <h2>All The Pets: </h2>
-            <MultiplePetDisplay/>
+        <div>
+            <Link class= "topright" to = "/pets/new">add a pet to the shelter</Link>
+            <div class ="mainbody">
+                <h1>Pet Shelter</h1>
+                <h2>These pets are looking for a good home</h2>
+                <MultiplePetDisplay/>
+            </div>
         </div>
     )
 }
