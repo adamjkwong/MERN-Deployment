@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../App.css';
 
 const SinglePetEdit = (props) => {
+    const {id} = props;
     const [petList, setPetList] = useState([]); 
     const [name, setName] = useState(""); 
     const [type, setType] = useState("");
@@ -12,7 +13,6 @@ const SinglePetEdit = (props) => {
     const [skill_2, setSkill_2] = useState("");
     const [skill_3, setSkill_3] = useState("");
     const [errors, setErrors] = useState({});
-
 const onSubmitHandler = e => {
     //prevent default behavior of the submit
     e.preventDefault();
@@ -27,13 +27,13 @@ const onSubmitHandler = e => {
     })
     .then(res=>{
         setPetList(res.data.pets);
-        navigate("/")
+        navigate("/pets/"+props.id)
     })
-    .catch(err=>console.log(err))
-    // .catch(err=>{
-    //     console.log(JSON.stringify(err));
-    //     setErrors(err.response.data.error)
-    // })
+    .catch(err=>{
+        console.log(JSON.stringify(err));
+        setErrors(err.response.data.errors);
+        console.log(err.response.data.errors);
+    })
 }
 useEffect(()=>{
     axios.get('http://localhost:8000/api/pets/'+props.id)
@@ -59,6 +59,11 @@ useEffect(()=>{
                     <p>
                         <label>Update Name: </label>
                         {
+                            errors.name ?
+                                <span className="error-txt">{ errors.name.message }</span>
+                                : null
+                        }
+                        {
                         name.length > 0 && name.length < 3 ?
                         <span className="error-txt"> Pet name must be at least 3 characters long</span>
                         : null
@@ -68,6 +73,11 @@ useEffect(()=>{
                     <p>
                         <label>Update Type: </label>
                         {
+                            errors.type ?
+                                <span className="error-txt">{ errors.type.message }</span>
+                                : null
+                        }
+                        {
                         type.length > 0 && type.length < 3 ?
                         <span className="error-txt"> Pet type must be at least 3 characters long</span>
                         : null
@@ -76,6 +86,11 @@ useEffect(()=>{
                     </p>
                     <p>
                         <label>Update Description: </label>
+                        {
+                            errors.description ?
+                                <span className="error-txt">{ errors.description.message }</span>
+                                : null
+                        }
                         {
                         description.length > 0 && description.length < 3 ?
                         <span className="error-txt"> Pet description must be at least 3 characters long</span>
@@ -91,29 +106,14 @@ useEffect(()=>{
                     </p>
                     <p>
                         <label>Skill_1: </label>
-                        {
-                        skill_1.length > 0 && skill_1.length < 3 ?
-                        <span className="error-txt"> This Skill must be at least 3 characters long</span>
-                        : null
-                        }
                         <input className="bigTextBox" type="text" value = {skill_1} onChange = {(e)=>setSkill_1(e.target.value)}/>
                     </p>
                     <p>
                         <label>Skill_2: </label>
-                        {
-                        skill_2.length > 0 && skill_2.length < 3 ?
-                        <span className="error-txt"> This skill must be at least 3 characters long</span>
-                        : null
-                        }
                         <input className="bigTextBox" type="text" value = {skill_2} onChange = {(e)=>setSkill_2(e.target.value)}/>
                     </p>
                     <p>
                         <label>Skill_3: </label>
-                        {
-                        skill_3.length > 0 && skill_3.length < 3 ?
-                        <span className="error-txt"> This skill must be at least 3 characters long</span>
-                        : null
-                        }
                         <input className="bigTextBox" type="text" value = {skill_3} onChange = {(e)=>setSkill_3(e.target.value)}/>
                     </p>
                 </div>

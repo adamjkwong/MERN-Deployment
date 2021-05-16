@@ -41,7 +41,7 @@ const SinglePetDisplay = (props) => {
         <div className="shiftleft">
             <div className="topright">
                 <Link to = "/">back to home</Link>
-                <button type="submit" onClick={onDelete}>Adopt {petList.name} </button>
+                <button className="topspace"type="submit" onClick={onDelete}>Adopt {petList.name} </button>
             </div>  
         <h1>Pet Shelter</h1>
         <h2>Details about: {petList.name}</h2>
@@ -59,7 +59,7 @@ const SinglePetDisplay = (props) => {
                         <h4>{petList.skill_1}</h4>
                         <h4>{petList.skill_2}</h4> 
                         <h4>{petList.skill_3}</h4>
-                        <input type="submit" value ="Like {petList.name}" className ="green-button"/>
+                        <button type="submit" className="green-button">Like {petList.name}</button>
                     </div>
                 </div>
             </div>

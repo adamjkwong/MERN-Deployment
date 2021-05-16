@@ -23,13 +23,13 @@ const PetForm = () => {
             skill_3,
         })
             .then(res=>{
-                console.log(res);
+                console.log(res.data);
                 navigate("/");
             })
             .catch(err=>{
                 console.log(JSON.stringify(err));
-                setErrors(err.response.data.error);
-                console.log(err.response.data.error);
+                setErrors(err.response.data.errors);
+                console.log(err.response.data.errors);
             })
     }
 
@@ -58,7 +58,7 @@ const PetForm = () => {
                         <label>Type: </label>
                         {
                             errors.type ?
-                                <span className="error-txt">{ errors.errors.type.message }</span>
+                                <span className="error-txt">{ errors.type.message }</span>
                                 : null
                         }
                                         {
@@ -72,7 +72,7 @@ const PetForm = () => {
                         <label>Description: </label>
                         {
                             errors.description ?
-                                <span className="error-txt">{ errors.errors.description.message }</span>
+                                <span className="error-txt">{ errors.description.message }</span>
                                 : null
                         }
                         {
@@ -88,34 +88,10 @@ const PetForm = () => {
                 </div>
                 <div className="detailed_pet_flex_entity">
                     <p>
-                        <label>Skill_1: </label>
-                        {
-                            skill_1.length > 0 && skill_1.length < 3 ?
-                            <span className="error-txt"> This Skill must be at least 3 characters long</span>
-                            : null
-                        }
-                    </p>
-                    <p>
                         <input type="text" onChange = {(e)=>setSkill_1(e.target.value)}/>
                     </p>
                     <p>
-                        <label>Skill_2: </label>
-                        {
-                            skill_2.length > 0 && skill_2.length < 3 ?
-                            <span className="error-txt"> This skill must be at least 3 characters long</span>
-                            : null
-                        }
-                    </p>
-                    <p>
                         <input type="text" onChange = {(e)=>setSkill_2(e.target.value)}/>
-                    </p>
-                    <p>
-                        <label>Skill_3: </label>
-                        {
-                            skill_3.length > 0 && skill_3.length < 3 ?
-                            <span className="error-txt"> This skill must be at least 3 characters long</span>
-                            : null
-                        }
                     </p>
                     <p>
                         <input type="text" onChange = {(e)=>setSkill_3(e.target.value)}/>

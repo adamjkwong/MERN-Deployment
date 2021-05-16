@@ -11,7 +11,7 @@ const PetSchema = new mongoose.Schema({
 	type: {
         type: String,
         required: [true, "you must have a type for this pet"],
-        minLength: [3, "your tyoe must be at least 3 characters"],
+        minLength: [3, "your type must be at least 3 characters"],
     },
     description : {
         type: String,
