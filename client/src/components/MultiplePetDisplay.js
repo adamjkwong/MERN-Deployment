@@ -30,15 +30,13 @@ const MultiplePetDisplay = (props) => {
             </table>
             {
             petList.map((pet, idx) => (
-                <div>
-                    <table>
+                <table>
                         <tr>
                             <td>{pet.name}</td>
                             <td>{pet.type}</td>
                             <td> <button type="submit" onClick={(e)=>{viewPet(pet._id)}}>Details</button><button type="submit" onClick={(e)=>{editPet(pet._id)}}>Edit</button></td>
                         </tr>
-                    </table>
-                </div>
+                </table>
             ))
             }
         </div>
