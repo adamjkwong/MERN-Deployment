@@ -88,12 +88,15 @@ const PetForm = () => {
                 </div>
                 <div className="detailed_pet_flex_entity">
                     <p>
+                        <label>Skill_1: </label>
                         <input type="text" onChange = {(e)=>setSkill_1(e.target.value)}/>
                     </p>
                     <p>
+                        <label>Skill_2: </label>
                         <input type="text" onChange = {(e)=>setSkill_2(e.target.value)}/>
                     </p>
                     <p>
+                        <label>Skill_3: </label>
                         <input type="text" onChange = {(e)=>setSkill_3(e.target.value)}/>
                     </p>
                 </div>
